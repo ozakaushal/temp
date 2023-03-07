@@ -1,0 +1,119 @@
+﻿@using CI_Project_Main.Models
+@model PaginationList<Mission>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+
+
+    <style>
+        #filter-dropdown {
+            overflow:scroll;
+            height:380px;
+            width:280px;
+            
+        }
+    </style>
+   
+</head>
+<body>
+
+    <header class="py-lg-0 py-md-0 py-sm-0 mb-4 row border">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <form class="d-flex ms-3 mb-lg-0 d-flex justify-content-center align-items-center search-form gap-2 pe-2"
+                  role="search"  asp-action="PlatformLanding" method="get">
+                <i class="bi bi-search ms-0 mt-1"></i>
+
+                <input type="search" id="search" asp-for="searchTerm" class="form-control border-0 ms-4" placeholder="Search Missions..." aria-label="Search">
+            </form>
+        </div>
+
+
+        <div class="filters col-lg-6 col-md-6 col-sm-6 d-flex justify-content-center align-content-center gap-5 gap-md-3 gap-sm-2">
+            <ul class="navbar-nav justify-content-center border-start border-end">
+                <li class="nav-item">
+                    <a class="text-decoration-none p-2 text-dark d-flex align-items-center justify-content-between dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Country
+                    </a>
+                    <ul class="dropdown-menu" id="filter-dropdown">
+                        @{
+                            foreach (Country countries in ViewBag.countryItem)
+                            {
+                                <li><input type="checkbox" value="@countries.Name" id="" class="ms-3 checkbox">@countries.Name</li>
+                            }
+                        }
+                        
+                        
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav justify-content-center p-2 border-end">
+                <li class="nav-item dropdown">
+                    <a class="text-decoration-none text-dark dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+                        City
+                    </a>
+                    <ul class="dropdown-menu">
+                        @{
+                            foreach (City cities in ViewBag.cityItem)
+                            {
+                                <li><input type="checkbox" value="@cities.Name" id="" class="ms-3 checkbox">@cities.Name</li>
+                            }
+                        }
+                        
+                        
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav justify-content-center border-end">
+                <li class="nav-item dropdown">
+                    <a class="text-decoration-none text-dark dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false">
+                        Theme
+                    </a>
+                    <ul class="dropdown-menu  p-2">
+
+                        @{
+                            foreach (MissionTheme themes in ViewBag.themeItem)
+                            {
+                                <li><input type="checkbox" value="@themes.Title" id="" class="ms-3 checkbox">@themes.Title</li>
+                            }
+                        }
+
+
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav justify-content-center p-2 border-end">
+                <li class="nav-item dropdown">
+                    <a class="text-decoration-none text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Skills
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        @{
+                            foreach (Skill skills in ViewBag.skillItem)
+                            {
+                                <li><input type="checkbox" value="@skills.SkillName" id="" class="ms-3 checkbox">@skills.SkillName</li>
+                            }
+                        }
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- filters div starts -->
+
+    <div class="filters-section mb-3 d-flex align-items-center flex-wrap justify-content-center">
+
+        <!-- clear all button --><!-- clear all button -->
+    </div>
+
+    <!-- filters div ends -->
+</body>
+</html>

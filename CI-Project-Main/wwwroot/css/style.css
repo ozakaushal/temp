@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+    
+
+}
+
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.carousel{
+    height: 100vh;
+    width: 100%;
+}
+
+.row{
+    min-width:100%;
+    
+}
+
+.btn{
+    width: 100%;
+    border: 2px solid #F88634;
+border-radius: 24px;
+background-color: #fff;
+color:#F88634;
+    font-size: 17px;
+}
+
+    .btn:hover {
+        border: 2px solid #fff;
+        background-color: #F88634;
+        color: #fff;
+        font-size: 17px;
+        width: 100%;
+        border-radius: 24px;
+    }
+
+
+
+#login--email{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+#reg--email{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+#reset--password{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+#reg--first-name{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+#reg--last-name{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+#reg--phone-number{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+#reg--password{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+#reg-confirm--password{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+
+#confirm--password{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #2B64B1;
+    border-radius: 3px;
+}
+
+#login--password{
+    box-shadow: 0px 0px 10px #2B64B11F;
+    border: 1px solid #D9D9D9;
+    border-radius: 3px;
+}
+
+.lost-password-reg{
+    width: 100%;
+    text-align: center;
+}
+
+    .lost-password-reg a{
+        font-size:20px;
+    }
+
+    .lost-password-reg span {
+        font-size: 20px;
+    }
+
+   
+    #anchor_lost_password {
+        display: inline-block;
+        margin-left: 6px;
+        font-size:16px;
+    }
+
+
+#lost-password-para, #reg-para, #login-para{
+    font-size: 20px;
+    color: #414141;
+}
+
+
+#reg-para span{
+    color: #2B64B1;
+
+}
+.privacy-policy{
+    width: 100%;
+    text-align: center;
+    height:13%;
+    
+    
+}
+
+.privacy-policy p{
+    
+    color: #414141;
+    font-size: 18px;
+    position:relative;
+    top:12px;
+   
+    
+}
+
+
+
+.carousel-item  img{
+    filter: brightness(60%);
+    background-size:cover;
+    
+  
+}
+
+.carousel-caption{
+    text-align: left;
+}
+.carousel-caption h5{
+    color: #fff;
+    font-size: 35px;
+    
+}
+
+.carousel-caption p{
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.row{
+    align-items: center;
+    max-width:100%;
+    
+   
+}
+
+.forget-text{
+    width: 100%;
+    text-align: center;
+}
+
+.forget-text p:nth-child(1){
+    font-size: 22px;
+    color: #414141;
+    font-weight:400 ;
+}
+.forget-text p:nth-child(2){
+    font-size: 16px;
+    font-weight: 300;
+    color: #414141;
+}
+
+.col-lg-8, .col-lg-4{
+    padding:0;
+    
+}
+
+.row{
+    margin-left:0;
+    margin-right:0;
+}
+.form{
+    /* position: relative; */
+    margin-top: 50%;
+}
+
+.col-lg-4{
+    height: 50vh;
+    margin-top: 0;
+}
+
+.reg-col{
+    height: 86vh;
+}
+
+.p-3 {
+    padding: 1rem !important;
+    margin-top: -6px;
+  }
+
+
+    
+
+.w-100 {
+    width: 100% !important;
+    height: 100vh !important;
+}
+
+.container-fluid{
+    padding:0;
+}
+
+.reg-privacy-policy{
+    width:100%;
+    height:20%;
+    text-align:center;  
+}
+
+.reg-privacy-policy p{
+    position:relative;
+    top:150px;
+    font-size:18px;
+}
+
+@media screen and (max-width:1025px){
+    #lost-password-para {
+        font-size: 18px;
+    }
+
+    #reg-para {
+        font-size: 16px;
+    }
+
+        #reg-para a {
+            display: block;
+        }
+
+            #reg-para a span {
+                font-size: 16px;
+            } 
+}
+
+
+@media screen and (max-width:769px){
+    .w-100 {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .carousel-caption h5 {
+        color: #fff;
+        font-size: 30px;
+    }
+
+    .carousel-caption p {
+        font-size: 12px;
+        opacity: 0.5;
+    }
+
+    .carousel {
+        height: auto;
+        width: 100%;
+    }
+
+}
+
+
+@media screen and (max-width:993px){
+    #lost-password-para{
+        font-size:20px;
+    }
+
+    #reg-para{
+        font-size:18px;
+    }
+    #reg-para a{
+        display:inline;
+    }
+    #reg-para a span{
+        font-size:18px;
+    } 
+}
+
+
+
+

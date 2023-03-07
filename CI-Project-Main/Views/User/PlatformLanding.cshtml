@@ -1,0 +1,225 @@
+﻿@using CI_Project_Main.Models
+@model PaginationList<Mission>
+@*@model IEnumerable<CI_Project_Main.Models.Mission>*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page : CI</title>
+    <link href="~/css/landingpage.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    @*navigation bar *@
+    @*//getitng session*@
+
+    @{
+        var userId = Context.Session.GetString("userID");
+        //var userName = Context.Session.GetString("userName");
+    }
+
+    <partial name="_Header" />
+
+
+
+    @*navigation bar *@
+
+
+    @*filterbar*@
+
+    <partial name="_FilterBar" />
+    @*filterbar*@
+
+
+
+    @*filters*@
+
+    <div class="container">
+        <div class="filters-section d-flex align-items-center flex-wrap justify-content-center">
+        </div>
+        <div class="d-flex align-items-center justify-content-between mission-listing-title">
+            <div class="landing-page-mission-header">
+                Explore <b>72 missions</b>
+            </div>
+
+            <div>
+
+                <div class="row d-flex align-items-center">
+
+
+
+                    <div class="my-3">
+                        <div class="pull-right d-flex sortby align-items-center">
+                            <div class="dropdown ms-1 pe-5 ps-2">
+                                <a class="text-reset me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sort By
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" id="" asp-action="PlatformLanding" asp-controller="User" asp-route-sort="1">Newest first</a></li>
+                                    <li><a class="dropdown-item"  asp-action="PlatformLanding" asp-controller="User" asp-route-sort="2">Oldest First</a></li>
+                                    <li><a class="dropdown-item"  asp-action="PlatformLanding" asp-controller="User" asp-route-sort="3">Seats</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group d-none d-lg-flex">
+
+                                <button class="btn" id="grid">
+                                    <img src="~/Images/grid.png" alt="">
+                                </button>
+                                <button class="btn" id="list">
+                                    <img src="~/Images/list.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @*All mission goes here*@
+    <!-- cards -->
+
+    <div id="products" class="row filters-div ps-3">
+
+        @{
+            foreach (Mission mission in Model)
+            {
+
+                <div class="item col-xs-4 col-lg-4 col-md-6">
+                    <div class="thumbnail card">
+                        <div class="img-event">
+                            <img class="group list-group-image img-fluid" style="width:100%;"
+                         src="~/Images/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                            <div class="landing-page-top-right"><img src="~/Images/pin.png" alt=""> Toronto</div>
+                            <div class="landing-page-bottom-right d-flex flex-column">
+                                <button class="mb-2 landing-page-btn-img">
+                                    <img src="~/Images/heart.png" alt="">
+                                </button><button class="landing-page-btn-img">
+                                    <img src="~/Images/user.png"
+                                 alt="">
+                                </button>
+                            </div>
+
+                            <div class="landing-page-bottom-center">Environment</div>
+                        </div>
+                        <div class="caption card-body">
+                            <h4 class="group card-title inner list-group-item-heading">
+                                @mission.Title
+                            </h4>
+                            <p class="group inner landing-page-list-group-item-text">
+                                @mission.ShortDescription
+                            </p>
+                            <div class="d-flex justify-content-between landing-page-card-rating">
+                                <div>Tree Canada</div>
+                                <div>
+                                    <img src="~/Images/selected-star.png" alt="">
+                                    <img src="~/Images/selected-star.png" alt="">
+                                    <img src="~/Images/selected-star.png" alt="">
+                                    <img src="~/Images/star.png" alt="">
+                                    <img src="~/Images/star.png" alt="">
+
+
+
+                                </div>
+                            </div>
+                            <div class="rule d-flex mt-1">
+                                <hr>
+                                <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                                <hr>
+                            </div>
+                            <div class="row landing-page-box-border">
+                                <div class="col-6 col-md-6 d-flex align-items-center">
+                                    <p class="lead me-2 pt-2">
+                                        <img src="~/Images/Seats-left.png" alt="">
+                                        <div>
+                                            <div>10</div>
+                                            <div class="landing-page-card-vol-small">Seats Left</div>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="col-6 col-md-6 d-flex align-items-center">
+                                    <p class="lead me-2 pt-2">
+                                        <img src="~/Images/deadline.png" alt="">
+                                        <div>
+                                            <div>09/01/2023</div>
+                                            <div class="landing-page-card-vol-small">Deadline</div>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="">
+                                    <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Home" asp-action="MissionDetails">
+                                        Apply <img src="~/Images/right-arrow.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+
+        }
+    </div>
+
+    @*pagination*@
+
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+        
+    }
+    <center>
+    <a asp-action="PlatformLanding" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
+   
+    <a asp-action="PlatformLanding" asp-route-pageNumber="1" class="btn btn-default">1</a>
+    <a asp-action="PlatformLanding" asp-route-pageNumber="2" class="btn btn-default">2</a>
+    <a asp-action="PlatformLanding" asp-route-pageNumber="3" class="btn btn-default">3</a>
+    <a asp-action="PlatformLanding" asp-route-pageNumber="4" class="btn btn-default">4</a>
+    <a asp-action="PlatformLanding" asp-route-pageNumber="5" class="btn btn-default">5</a>
+    <a asp-action="PlatformLanding" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
+    </center>
+
+</body>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+<script src="~/js/index.js"></script>
+@*<script>
+
+    $(document).ready(function () {
+
+        $("#search").keyup(function () {
+
+            var searchText = $("#search").val().toLowerCase();
+
+            $(".item").each(function () {
+
+                if ($(this).text().includes(searchText)) {
+                    $(this).show();
+                }
+                else {
+                    $(this).hide();
+                }
+            })
+        })
+    })
+</script>*@
+
+
+</html>
+
+
+
+
+
